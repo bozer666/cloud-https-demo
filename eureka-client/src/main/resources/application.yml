@@ -1,0 +1,23 @@
+server:
+  port: 8100
+  ssl:
+    enabled: true
+    #    证书路径
+    key-store: classpath:server.p12
+    key-store-type: PKCS12
+    key-alias: server
+    #    配置密码，就是在生成证书的时候输入的密码
+    key-store-password: 123456
+#注册中心
+eureka:
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 45
+    lease-renewal-interval-in-seconds: 15
+  client:
+    serviceUrl:
+      defaultZone: https://127.0.0.1:8000/eureka/
+    registry-fetch-interval-seconds: 5
+spring:
+  application:
+    name: eureka-client

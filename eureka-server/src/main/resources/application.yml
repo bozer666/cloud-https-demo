@@ -2,21 +2,19 @@ server:
   port: 8000
   ssl:
     enabled: true
-    #    证书路径
-    key-store: classpath:server.p12
+    key-store: classpath:codesheepserver.p12
+    key-store-password: 123456
     key-store-type: PKCS12
     key-alias: server
-    #    配置密码，就是在生成证书的时候输入的密码
-    key-store-password: 123456
 
 eureka:
   server:
     enable-self-preservation: false
   instance:
     hostname: localhost
-#    non-secure-port-enabled: false
-#    secure-port-enabled: true
-#    secure-port: ${server.port}
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
   client:
     registerWithEureka: false
     fetchRegistry: false
